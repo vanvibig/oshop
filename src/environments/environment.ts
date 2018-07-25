@@ -3,7 +3,15 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  firebase: {
+    apiKey: "AIzaSyCpfBmetZa6nyt4RbUSK-gGTdb0gPjWV6E",
+    authDomain: "kvoshop.firebaseapp.com",
+    databaseURL: "https://kvoshop.firebaseio.com",
+    projectId: "kvoshop",
+    storageBucket: "kvoshop.appspot.com",
+    messagingSenderId: "657690934840"
+  }
 };
 
 /*
