@@ -19,6 +19,7 @@ import {AdminOrdersComponent} from './admin/admin-orders/admin-orders.component'
 import {RouterModule} from '@angular/router';
 import {LoginComponent} from './login/login.component';
 import {AuthGuard} from './auth-guard.service';
+import {AuthService} from './auth.service';
 
 @NgModule({
     declarations: [
@@ -55,7 +56,7 @@ import {AuthGuard} from './auth-guard.service';
         ])
 
     ],
-    providers: [],
+    providers: [AuthGuard, AuthService],
     bootstrap: [AppComponent]
 })
 export class AppModule {
