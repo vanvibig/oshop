@@ -1,11 +1,11 @@
 export const environment = {
-  production: true,
-  firebase: {
-    apiKey: "AIzaSyCpfBmetZa6nyt4RbUSK-gGTdb0gPjWV6E",
-    authDomain: "kvoshop.firebaseapp.com",
-    databaseURL: "https://kvoshop.firebaseio.com",
-    projectId: "kvoshop",
-    storageBucket: "kvoshop.appspot.com",
-    messagingSenderId: "657690934840"
-  }
+    production: true,
+    firebase: {
+        apiKey: 'AIzaSyC6OmFK94Oz6BjUYe6i2_o3Z1505h_zE3E',
+        authDomain: 'kvoshop-6711c.firebaseapp.com',
+        databaseURL: 'https://kvoshop-6711c.firebaseio.com',
+        projectId: 'kvoshop-6711c',
+        storageBucket: 'kvoshop-6711c.appspot.com',
+        messagingSenderId: '1058087609034'
+    }
 };
