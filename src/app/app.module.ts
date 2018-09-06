@@ -22,6 +22,7 @@ import {AuthGuard} from './auth-guard.service';
 import {AuthService} from './auth.service';
 import {ProductFormComponent} from './admin/product-form/product-form.component';
 import {AdminAuthGuard} from './admin-auth-guard.service';
+import {AngularFirestoreModule} from 'angularfire2/firestore';
 
 @NgModule({
     declarations: [
@@ -43,6 +44,7 @@ import {AdminAuthGuard} from './admin-auth-guard.service';
         AngularFireModule.initializeApp(environment.firebase),
         AngularFireDatabaseModule,
         AngularFireAuthModule,
+        AngularFirestoreModule,
         NgbModule.forRoot(),
         RouterModule.forRoot([
             {path: '', component: HomeComponent},
