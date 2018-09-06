@@ -14,8 +14,8 @@
         <label for="category">Category</label>
         <select id="category" class="form-control">
             <option value=""></option>
-            <option *ngFor="let c of categories$ | async; let i = index" [value]="keys[i]?.key">
-                {{ c.name }}
+            <option *ngFor="let c of categories$ | async; let i = index" [value]="c?.key">
+                {{ c.payload.val().name}}
             </option>
         </select>
     </div>

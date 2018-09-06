@@ -1,6 +1,7 @@
 import {Observable} from 'rxjs';
 import {CategoryService} from './../../category.service';
 import {Component, OnInit} from '@angular/core';
+import {map} from 'rxjs/operators';
 
 @Component({
     selector: 'app-product-form',
@@ -8,7 +9,7 @@ import {Component, OnInit} from '@angular/core';
     styleUrls: ['./product-form.component.css']
 })
 export class ProductFormComponent implements OnInit {
-    categories$: Observable<any>;
+    categories$;
     keys = [];
 
     constructor(categoryService: CategoryService) {

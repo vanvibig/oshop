@@ -13,7 +13,7 @@ export class CategoryService {
     }
 
     getCategories() {
-        return this.db.list('/categories', ref => ref.orderByChild('name')).valueChanges();
+        return this.db.list('/categories', ref => ref.orderByChild('name')).snapshotChanges();
     }
 
     getCategoriesByAfs() {
