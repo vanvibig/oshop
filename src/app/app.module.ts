@@ -24,6 +24,7 @@ import {ProductFormComponent} from './admin/product-form/product-form.component'
 import {AdminAuthGuard} from './admin-auth-guard.service';
 import {AngularFirestoreModule} from 'angularfire2/firestore';
 import {FormsModule} from '@angular/forms';
+import { CustomFormsModule } from 'ng2-validation'
 
 @NgModule({
     declarations: [
@@ -43,6 +44,7 @@ import {FormsModule} from '@angular/forms';
     imports: [
         BrowserModule,
         FormsModule,
+        CustomFormsModule,
         AngularFireModule.initializeApp(environment.firebase),
         AngularFireDatabaseModule,
         AngularFireAuthModule,
