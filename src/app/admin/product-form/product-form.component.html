@@ -24,7 +24,7 @@
                 <label for="category">Category</label>
                 <select #category="ngModel" required ngModel name="category" id="category" class="form-control">
                     <option value=""></option>
-                    <option *ngFor="let c of categories$ | async; let i = index" [value]="c?.key">
+                    <option *ngFor="let c of categories$ | async" [value]="c?.key">
                         {{ c.payload.val()?.name}}
                     </option>
                 </select>

@@ -12,7 +12,6 @@ import {Router} from '@angular/router';
 })
 export class ProductFormComponent implements OnInit {
     categories$;
-    keys = [];
 
     constructor(
         private categoryService: CategoryService,
@@ -20,9 +19,6 @@ export class ProductFormComponent implements OnInit {
         private router: Router
     ) {
         this.categories$ = categoryService.getCategories();
-        categoryService.getCategoriesKey().subscribe(res => {
-            this.keys = res;
-        });
     }
 
     ngOnInit() {
