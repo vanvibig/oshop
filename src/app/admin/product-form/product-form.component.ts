@@ -2,6 +2,7 @@ import {Observable} from 'rxjs';
 import {CategoryService} from './../../category.service';
 import {Component, OnInit} from '@angular/core';
 import {map} from 'rxjs/operators';
+import {ProductService} from '../../product.service';
 
 @Component({
     selector: 'app-product-form',
@@ -12,7 +13,10 @@ export class ProductFormComponent implements OnInit {
     categories$;
     keys = [];
 
-    constructor(categoryService: CategoryService) {
+    constructor(
+        private categoryService: CategoryService,
+        private productService: ProductService
+    ) {
         this.categories$ = categoryService.getCategories();
         categoryService.getCategoriesKey().subscribe(res => {
             this.keys = res;
@@ -20,5 +24,9 @@ export class ProductFormComponent implements OnInit {
     }
 
     ngOnInit() {
+    }
+
+    save(product) {
+        this.productService.create(product);
     }
 }
