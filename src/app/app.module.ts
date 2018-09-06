@@ -24,7 +24,7 @@ import {ProductFormComponent} from './admin/product-form/product-form.component'
 import {AdminAuthGuard} from './admin-auth-guard.service';
 import {AngularFirestoreModule} from 'angularfire2/firestore';
 import {FormsModule} from '@angular/forms';
-import { CustomFormsModule } from 'ng2-validation'
+import { CustomFormsModule } from 'ng2-validation';
 
 @NgModule({
     declarations: [
@@ -72,7 +72,7 @@ import { CustomFormsModule } from 'ng2-validation'
             {
                 path: 'admin/products',
                 component: AdminProductsComponent,
-                canActivate: [AuthGuard, AdminAuthGuard]
+                canActivate: [AuthGuard, AdminAuthGuard],
             },
             {
                 path: 'admin/orders',
