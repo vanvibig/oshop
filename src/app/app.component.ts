@@ -14,11 +14,11 @@ export class AppComponent {
             user => {
                 if (user) {
                     userService.save(user);
-                    let returnUrl = localStorage.getItem('returnUrl');
-                    if (returnUrl === '/login') {
-                        returnUrl = '/';
-                    }
-                    router.navigateByUrl(returnUrl);
+                    // let returnUrl = localStorage.getItem('returnUrl');
+                    // if (returnUrl === '/login') {
+                    //     returnUrl = '/';
+                    // }
+                    // router.navigateByUrl(returnUrl);
                 }
             }
         );
