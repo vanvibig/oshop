@@ -12,7 +12,8 @@ import {ActivatedRoute, Router} from '@angular/router';
 })
 export class ProductFormComponent implements OnInit {
     categories$;
-    product = {};
+    product: any = {};
+    id;
 
     constructor(
         private categoryService: CategoryService,
@@ -22,9 +23,9 @@ export class ProductFormComponent implements OnInit {
     ) {
         this.categories$ = categoryService.getCategories();
 
-        let id = this.route.snapshot.paramMap.get('id');
-        if (id) {
-            this.productService.get(id).subscribe(
+        this.id = this.route.snapshot.paramMap.get('id');
+        if (this.id) {
+            this.productService.get(this.id).subscribe(
                 res => {
                     this.product = res;
                 }
@@ -36,7 +37,11 @@ export class ProductFormComponent implements OnInit {
     }
 
     save(product) {
-        this.productService.create(product);
+        if (this.id) {
+            this.productService.update(this.id, product);
+        } else {
+            this.productService.create(product);
+        }
         this.router.navigate(['/admin/products']);
     }
 }
