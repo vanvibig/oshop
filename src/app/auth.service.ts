@@ -3,7 +3,7 @@ import {AngularFireAuth} from 'angularfire2/auth';
 import * as firebase from 'firebase';
 import {Observable, of} from 'rxjs';
 import {ActivatedRoute, Router} from '@angular/router';
-import {UserModel} from './models/user.model';
+import {User} from './models/user';
 import {switchMap} from 'rxjs/operators';
 import {UserService} from './user.service';
 
@@ -35,7 +35,7 @@ export class AuthService {
         this.afAuth.auth.signOut();
     }
 
-    get userModel$(): Observable<UserModel> {
+    get userModel$(): Observable<User> {
         return this.user$.pipe(
             switchMap(user => {
                 if (user) {

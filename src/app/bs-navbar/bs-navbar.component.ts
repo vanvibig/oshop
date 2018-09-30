@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import {AuthService} from '../auth.service';
-import {UserModel} from '../models/user.model';
+import {User} from '../models/user';
 
 @Component({
     selector: 'bs-navbar',
@@ -9,7 +9,7 @@ import {UserModel} from '../models/user.model';
 })
 export class BsNavbarComponent {
 
-    userModel: UserModel;
+    userModel: User;
 
     constructor(private authService: AuthService) {
         authService.userModel$.subscribe(
