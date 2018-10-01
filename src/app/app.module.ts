@@ -2,7 +2,7 @@ import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {AngularFireModule} from 'angularfire2';
 import {AngularFireDatabaseModule} from 'angularfire2/database';
-import {AngularFireAuth, AngularFireAuthModule} from 'angularfire2/auth';
+import {AngularFireAuthModule} from 'angularfire2/auth';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 import {AppComponent} from './app.component';
@@ -24,7 +24,9 @@ import {ProductFormComponent} from './admin/product-form/product-form.component'
 import {AdminAuthGuard} from './admin-auth-guard.service';
 import {AngularFirestoreModule} from 'angularfire2/firestore';
 import {FormsModule} from '@angular/forms';
-import { CustomFormsModule } from 'ng2-validation';
+import {CustomFormsModule} from 'ng2-validation';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MaterialModule} from './shared/material.module';
 
 @NgModule({
     declarations: [
@@ -44,6 +46,8 @@ import { CustomFormsModule } from 'ng2-validation';
     imports: [
         BrowserModule,
         FormsModule,
+        MaterialModule,
+        BrowserAnimationsModule,
         CustomFormsModule,
         AngularFireModule.initializeApp(environment.firebase),
         AngularFireDatabaseModule,
@@ -81,6 +85,9 @@ import { CustomFormsModule } from 'ng2-validation';
             },
         ])
 
+    ],
+    exports: [
+        MaterialModule
     ],
     providers: [AuthGuard, AuthService],
     bootstrap: [AppComponent]
