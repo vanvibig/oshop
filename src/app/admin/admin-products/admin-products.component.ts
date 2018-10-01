@@ -1,8 +1,8 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {ProductService} from '../../product.service';
 import {Subscription} from 'rxjs';
 import {Product} from '../../models/product';
-import {Sort} from '@angular/material';
+import {MatSort, MatTableDataSource, Sort} from '@angular/material';
 
 @Component({
     selector: 'app-admin-products',
@@ -14,8 +14,11 @@ export class AdminProductsComponent implements OnInit, OnDestroy {
     products: Product[];
     filterdProducts: any[] = [];
     displayedColumns: string[] = ['title', 'price', 'edit'];
-    sortedData: Product[] = [];
+    sortedData;
     subscription: Subscription;
+    dataSource;
+
+    @ViewChild(MatSort) sort: MatSort;
 
     constructor(
         private productService: ProductService
@@ -31,10 +34,10 @@ export class AdminProductsComponent implements OnInit, OnDestroy {
                             product.data.category,
                             product.data.imageUrl);
                     });
-                    this.sortedData = this.filterdProducts.slice();
+                    this.dataSource = new MatTableDataSource(this.filterdProducts);
+                    this.dataSource.sort = this.sort;
                 }
             );
-        // this.sortedData = this.filterdProducts.slice();
     }
 
     sortData(sort: Sort) {
@@ -68,9 +71,12 @@ export class AdminProductsComponent implements OnInit, OnDestroy {
     }
 
     filter(query: string) {
-        this.sortedData = this.filterdProducts = (query) ?
+        this.filterdProducts = (query) ?
             this.products.filter(p => p.title.toLowerCase().includes(query.toLowerCase())) :
             this.products;
+
+        this.dataSource = new MatTableDataSource(this.filterdProducts);
+        this.dataSource.sort = this.sort;
     }
 
     ngOnInit() {
