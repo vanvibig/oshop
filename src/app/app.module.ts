@@ -55,7 +55,7 @@ import {MaterialModule} from './shared/material.module';
         AngularFirestoreModule,
         NgbModule.forRoot(),
         RouterModule.forRoot([
-            {path: '', component: HomeComponent},
+            {path: '', component: ProductsComponent},
             {path: 'products', component: ProductsComponent},
             {path: 'shopping-cart', component: ShoppingCartComponent},
             {path: 'login', component: LoginComponent},

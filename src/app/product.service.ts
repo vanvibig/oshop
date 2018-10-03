@@ -16,11 +16,29 @@ export class ProductService {
 
     getAll() {
         return this.db.list('/products').snapshotChanges().pipe(
-            map( items => {
+            map(items => {
                 return items.map(a => {
                     const data = a.payload.val();
                     const key = a.payload.key;
                     return {key, data};
+                });
+            })
+        );
+    }
+
+    getAllDetail() {
+        return this.db.list('/products').snapshotChanges().pipe(
+            map((items: any) => {
+                return items.map(a => {
+                    const data = a.payload.val();
+                    const key = a.payload.key;
+                    return {
+                        id: key,
+                        title: data.title,
+                        price: data.price,
+                        category: data.category,
+                        imageUrl: data.imageUrl
+                    };
                 });
             })
         );
