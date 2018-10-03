@@ -2,7 +2,7 @@ import {Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {ProductService} from '../../product.service';
 import {Subscription} from 'rxjs';
 import {Product} from '../../models/product';
-import {MatSort, MatTableDataSource, Sort} from '@angular/material';
+import {MatPaginator, MatSort, MatTableDataSource, PageEvent, Sort} from '@angular/material';
 
 @Component({
     selector: 'app-admin-products',
@@ -18,7 +18,13 @@ export class AdminProductsComponent implements OnInit, OnDestroy {
     subscription: Subscription;
     dataSource;
 
+    // MatPaginator Inputs
+    length = 100;
+    pageSize = 10;
+    pageSizeOptions: number[] = [5, 10, 25, 100];
+
     @ViewChild(MatSort) sort: MatSort;
+    @ViewChild(MatPaginator) paginator: MatPaginator;
 
     constructor(
         private productService: ProductService
@@ -36,6 +42,8 @@ export class AdminProductsComponent implements OnInit, OnDestroy {
                     });
                     this.dataSource = new MatTableDataSource(this.filterdProducts);
                     this.dataSource.sort = this.sort;
+                    this.dataSource.paginator = this.paginator;
+                    this.length = this.filterdProducts.length;
                 }
             );
     }
@@ -77,6 +85,7 @@ export class AdminProductsComponent implements OnInit, OnDestroy {
 
         this.dataSource = new MatTableDataSource(this.filterdProducts);
         this.dataSource.sort = this.sort;
+        this.dataSource.paginator = this.paginator;
     }
 
     ngOnInit() {
