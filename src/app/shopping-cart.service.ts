@@ -33,7 +33,7 @@ export class ShoppingCartService {
     }
 
     private getItem(cartId: string, productId: string) {
-        return this.db.object('/shopping-carts/' + cartId + '/items/' + productId);
+        return this.db.object('/shopping-carts/' + cartId + '/itemsMap/' + productId);
     }
 
     private async getOrCreateCartId() {
