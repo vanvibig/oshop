@@ -21,18 +21,7 @@ export class ProductCartComponent implements OnInit {
     }
 
     addToCart(product: Product) {
-        const cartId = localStorage.getItem('cartId');
-        if (!cartId) {
-            this.cartService.create().then(
-                (res) => {
-                    localStorage.setItem('cartId', res.key);
-
-                    // add product to cart
-                }
-            );
-        } else {
-            // add product to cart
-        }
+        this.cartService.addToCart(product);
     }
 
 }
