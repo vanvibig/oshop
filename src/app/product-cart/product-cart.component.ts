@@ -10,7 +10,7 @@ import {ShoppingCartService} from '../shopping-cart.service';
 export class ProductCartComponent implements OnInit {
 
     @Input('product') product: Product;
-    @Input('show-action') showAction = true;
+    @Input('showAction') showAction = true;
 
     constructor(
         private cartService: ShoppingCartService
