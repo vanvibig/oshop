@@ -1,12 +1,12 @@
 <h1>Shopping Cart</h1>
 <ng-container *ngIf="cart$ | async as cart">
     <p>You have {{ cart.totalItemsCount }} items in your shopping cart.</p>
-    <table>
+    <table class="table">
         <thead>
         <tr>
             <th>Product</th>
             <th>Quantity</th>
-            <th></th>
+            <th>Price</th>
         </tr>
         </thead>
         <tbody>
@@ -17,8 +17,17 @@
             <td>
                 {{ item.product.quantity }}
             </td>
-            <td></td>
+            <td>
+                {{ item.totalPrice | currency: 'USD' }}
+            </td>
         </tr>
         </tbody>
+        <tfoot>
+        <tr>
+            <th></th>
+            <th></th>
+            <th>{{ cart.totalPrice | currency: 'USD' }}</th>
+        </tr>
+        </tfoot>
     </table>
 </ng-container>
