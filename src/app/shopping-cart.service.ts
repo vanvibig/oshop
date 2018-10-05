@@ -19,7 +19,8 @@ export class ShoppingCartService {
         });
     }
 
-    private getCart(cartId: string) {
+    async getCart() {
+        const cartId = await this.getOrCreateCartId();
         return this.db.object('/shopping-carts/' + cartId);
     }
 
