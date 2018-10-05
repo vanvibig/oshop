@@ -6,7 +6,7 @@ export interface IProduct {
     imageUrl: string;
 }
 
-export class Product implements IProduct{
+export class Product implements IProduct {
     public id: string;
     public title: string;
     public price: number;
@@ -21,3 +21,18 @@ export class Product implements IProduct{
         this.imageUrl = imageUrl;
     }
 }
+
+export class ProductBase {
+    public title: string;
+    public price: number;
+    public category: string;
+    public imageUrl: string;
+
+    constructor(product: Product) {
+        this.title = product.title;
+        this.price = product.price;
+        this.category = product.category;
+        this.imageUrl = product.imageUrl;
+    }
+}
+
