@@ -5,7 +5,7 @@ export class ShoppingCart {
 
     items: ShoppingCartItem[] = [];
 
-    constructor(public itemsMap: {
+    constructor(private itemsMap: {
         [productId: string]: ShoppingCartItem;
     }) {
         this.itemsMap = itemsMap || {};
