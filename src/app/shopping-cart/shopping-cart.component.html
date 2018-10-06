@@ -7,6 +7,7 @@
             <th>Product</th>
             <th>Quantity</th>
             <th>Price</th>
+            <th>Clear</th>
         </tr>
         </thead>
         <tbody>
@@ -20,6 +21,12 @@
             <td>
                 {{ item.totalPrice | currency: 'USD' }}
             </td>
+            <td>
+                <button
+                    (click)="clearProduct(item.id)"
+                    class="btn btn-danger btn-sm">Clear Product
+                </button>
+            </td>
         </tr>
         </tbody>
         <tfoot>
@@ -27,7 +34,12 @@
             <th></th>
             <th></th>
             <th>{{ cart.totalPrice | currency: 'USD' }}</th>
+            <th></th>
         </tr>
         </tfoot>
     </table>
+    <button
+        (click)="clearCart()"
+        class="btn btn-danger btn-sm">Clear Shopping Cart
+    </button>
 </ng-container>
