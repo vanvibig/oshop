@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {ShoppingCartService} from '../shopping-cart.service';
-import {MatTableDataSource} from '@angular/material';
 
 @Component({
     selector: 'app-shopping-cart',
