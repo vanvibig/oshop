@@ -30,6 +30,7 @@ import {MaterialModule} from './shared/material.module';
 import { ProductFilterComponent } from './products/product-filter/product-filter.component';
 import { ProductCartComponent } from './product-cart/product-cart.component';
 import { ProductQuantityComponent } from './product-quantity/product-quantity.component';
+import { ShoppingCartSummaryComponent } from './shopping-cart-summary/shopping-cart-summary.component';
 
 @NgModule({
     declarations: [
@@ -47,7 +48,8 @@ import { ProductQuantityComponent } from './product-quantity/product-quantity.co
         ProductFormComponent,
         ProductFilterComponent,
         ProductCartComponent,
-        ProductQuantityComponent
+        ProductQuantityComponent,
+        ShoppingCartSummaryComponent
     ],
     imports: [
         BrowserModule,
