@@ -7,11 +7,11 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 import {AppComponent} from './app.component';
 import {environment} from '../environments/environment';
-import {BsNavbarComponent} from './bs-navbar/bs-navbar.component';
-import {HomeComponent} from './home/home.component';
+import {BsNavbarComponent} from './core/components/bs-navbar/bs-navbar.component';
+import {HomeComponent} from './core/components/home/home.component';
 import {ProductsComponent} from './shopping/components/products/products.component';
 import {RouterModule} from '@angular/router';
-import {LoginComponent} from './login/login.component';
+import {LoginComponent} from './core/components/login/login.component';
 import {AuthGuard} from './shared/services/auth-guard.service';
 import {AngularFirestoreModule} from 'angularfire2/firestore';
 import {FormsModule} from '@angular/forms';
@@ -20,18 +20,17 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {SharedModule} from './shared/shared.module';
 import {AdminModule} from './admin/admin.module';
 import {ShoppingModule} from './shopping/shopping.module';
+import {CoreModule} from './core/core.module';
 
 @NgModule({
     declarations: [
         AppComponent,
-        BsNavbarComponent,
-        HomeComponent,
-        LoginComponent,
     ],
     imports: [
         SharedModule,
         AdminModule,
         ShoppingModule,
+        CoreModule,
         BrowserModule,
         FormsModule,
         BrowserAnimationsModule,

@@ -1,9 +1,8 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {AuthService} from '../shared/services/auth.service';
-import {User} from '../shared/models/user';
-import {ShoppingCartService} from '../shared/services/shopping-cart.service';
-import {Observable, Subscription} from 'rxjs';
-import {ShoppingCart} from '../shared/models/shopping-cart';
+import {AuthService} from '../../../shared/services/auth.service';
+import {User} from '../../../shared/models/user';
+import {ShoppingCartService} from '../../../shared/services/shopping-cart.service';
+import {Subscription} from 'rxjs';
 
 @Component({
     selector: 'bs-navbar',
@@ -20,7 +19,6 @@ export class BsNavbarComponent implements OnInit, OnDestroy {
         private authService: AuthService,
         private cartService: ShoppingCartService
     ) {
-
     }
 
     logout() {
@@ -29,7 +27,9 @@ export class BsNavbarComponent implements OnInit, OnDestroy {
 
     async ngOnInit() {
         this.authService.userModel$.subscribe(
-            userModel => this.userModel = userModel
+            userModel => {
+                this.userModel = userModel;
+            }
         );
 
         this.cart$ = await this.cartService.getCart();
