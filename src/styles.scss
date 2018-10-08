@@ -3,6 +3,17 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 @import "~font-awesome/css/font-awesome.min.css";
 
+$primay-color: #c1d62e;
+
+.navbar-light .navbar-brand {
+    color: $primay-color;
+}
+
+.list-group-item.active {
+    background-color: $primay-color;
+    border-color: $primay-color;
+}
+
 body {
     padding-top: 80px;
 }
