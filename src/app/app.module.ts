@@ -32,6 +32,7 @@ import { ProductCartComponent } from './shared/components/product-cart/product-c
 import { ProductQuantityComponent } from './shared/components/product-quantity/product-quantity.component';
 import { ShoppingCartSummaryComponent } from './shopping-cart-summary/shopping-cart-summary.component';
 import { ShippingFormComponent } from './shipping-form/shipping-form.component';
+import {SharedModule} from './shared/shared.module';
 
 @NgModule({
     declarations: [
@@ -48,12 +49,11 @@ import { ShippingFormComponent } from './shipping-form/shipping-form.component';
         LoginComponent,
         ProductFormComponent,
         ProductFilterComponent,
-        ProductCartComponent,
-        ProductQuantityComponent,
         ShoppingCartSummaryComponent,
         ShippingFormComponent
     ],
     imports: [
+        SharedModule,
         BrowserModule,
         FormsModule,
         MaterialModule,
@@ -99,7 +99,7 @@ import { ShippingFormComponent } from './shipping-form/shipping-form.component';
     exports: [
         MaterialModule
     ],
-    providers: [AuthGuard, AuthService],
+    providers: [AuthGuard],
     bootstrap: [AppComponent]
 })
 export class AppModule {
