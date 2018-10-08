@@ -14,7 +14,7 @@ import {Router} from '@angular/router';
 })
 export class ShippingFormComponent implements OnInit, OnDestroy {
     @Input('cart') cart: ShoppingCart;
-    shipping = {};
+    shipping = <any>{};
     userId: string;
     userSubscription: Subscription;
 
