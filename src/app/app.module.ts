@@ -31,6 +31,7 @@ import { ProductFilterComponent } from './products/product-filter/product-filter
 import { ProductCartComponent } from './product-cart/product-cart.component';
 import { ProductQuantityComponent } from './product-quantity/product-quantity.component';
 import { ShoppingCartSummaryComponent } from './shopping-cart-summary/shopping-cart-summary.component';
+import { ShippingFormComponent } from './shipping-form/shipping-form.component';
 
 @NgModule({
     declarations: [
@@ -49,7 +50,8 @@ import { ShoppingCartSummaryComponent } from './shopping-cart-summary/shopping-c
         ProductFilterComponent,
         ProductCartComponent,
         ProductQuantityComponent,
-        ShoppingCartSummaryComponent
+        ShoppingCartSummaryComponent,
+        ShippingFormComponent
     ],
     imports: [
         BrowserModule,
