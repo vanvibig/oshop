@@ -18,18 +18,18 @@ import {AdminProductsComponent} from './admin/admin-products/admin-products.comp
 import {AdminOrdersComponent} from './admin/admin-orders/admin-orders.component';
 import {RouterModule} from '@angular/router';
 import {LoginComponent} from './login/login.component';
-import {AuthGuard} from './auth-guard.service';
-import {AuthService} from './auth.service';
+import {AuthGuard} from './shared/services/auth-guard.service';
+import {AuthService} from './shared/services/auth.service';
 import {ProductFormComponent} from './admin/product-form/product-form.component';
-import {AdminAuthGuard} from './admin-auth-guard.service';
+import {AdminAuthGuard} from './shared/services/admin-auth-guard.service';
 import {AngularFirestoreModule} from 'angularfire2/firestore';
 import {FormsModule} from '@angular/forms';
 import {CustomFormsModule} from 'ng2-validation';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MaterialModule} from './shared/material.module';
+import {MaterialModule} from './shared/modules/material.module';
 import { ProductFilterComponent } from './products/product-filter/product-filter.component';
-import { ProductCartComponent } from './product-cart/product-cart.component';
-import { ProductQuantityComponent } from './product-quantity/product-quantity.component';
+import { ProductCartComponent } from './shared/components/product-cart/product-cart.component';
+import { ProductQuantityComponent } from './shared/components/product-quantity/product-quantity.component';
 import { ShoppingCartSummaryComponent } from './shopping-cart-summary/shopping-cart-summary.component';
 import { ShippingFormComponent } from './shipping-form/shipping-form.component';
 
