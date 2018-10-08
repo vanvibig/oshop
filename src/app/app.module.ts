@@ -9,47 +9,29 @@ import {AppComponent} from './app.component';
 import {environment} from '../environments/environment';
 import {BsNavbarComponent} from './bs-navbar/bs-navbar.component';
 import {HomeComponent} from './home/home.component';
-import {ProductsComponent} from './products/products.component';
-import {ShoppingCartComponent} from './shopping-cart/shopping-cart.component';
-import {CheckOutComponent} from './check-out/check-out.component';
-import {OrderSuccessComponent} from './order-success/order-success.component';
-import {MyOrdersComponent} from './my-orders/my-orders.component';
-import {AdminProductsComponent} from './admin/components/admin-products/admin-products.component';
-import {AdminOrdersComponent} from './admin/components/admin-orders/admin-orders.component';
+import {ProductsComponent} from './shopping/components/products/products.component';
 import {RouterModule} from '@angular/router';
 import {LoginComponent} from './login/login.component';
 import {AuthGuard} from './shared/services/auth-guard.service';
-import {ProductFormComponent} from './admin/components/product-form/product-form.component';
-import {AdminAuthGuard} from './admin/services/admin-auth-guard.service';
 import {AngularFirestoreModule} from 'angularfire2/firestore';
 import {FormsModule} from '@angular/forms';
 import {CustomFormsModule} from 'ng2-validation';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MaterialModule} from './shared/modules/material.module';
-import {ProductFilterComponent} from './products/product-filter/product-filter.component';
-import {ShoppingCartSummaryComponent} from './shopping-cart-summary/shopping-cart-summary.component';
-import {ShippingFormComponent} from './shipping-form/shipping-form.component';
 import {SharedModule} from './shared/shared.module';
 import {AdminModule} from './admin/admin.module';
+import {ShoppingModule} from './shopping/shopping.module';
 
 @NgModule({
     declarations: [
         AppComponent,
         BsNavbarComponent,
         HomeComponent,
-        ProductsComponent,
-        ShoppingCartComponent,
-        CheckOutComponent,
-        OrderSuccessComponent,
-        MyOrdersComponent,
         LoginComponent,
-        ProductFilterComponent,
-        ShoppingCartSummaryComponent,
-        ShippingFormComponent
     ],
     imports: [
         SharedModule,
         AdminModule,
+        ShoppingModule,
         BrowserModule,
         FormsModule,
         BrowserAnimationsModule,
@@ -61,33 +43,7 @@ import {AdminModule} from './admin/admin.module';
         NgbModule.forRoot(),
         RouterModule.forRoot([
             {path: '', component: ProductsComponent},
-            {path: 'products', component: ProductsComponent},
-            {path: 'shopping-cart', component: ShoppingCartComponent},
             {path: 'login', component: LoginComponent},
-
-            {path: 'check-out', component: CheckOutComponent, canActivate: [AuthGuard]},
-            {path: 'order-success/:id', component: OrderSuccessComponent, canActivate: [AuthGuard]},
-            {path: 'my/orders', component: MyOrdersComponent, canActivate: [AuthGuard]},
-            {
-                path: 'admin/products/new',
-                component: ProductFormComponent,
-                canActivate: [AuthGuard, AdminAuthGuard]
-            },
-            {
-                path: 'admin/products/:id',
-                component: ProductFormComponent,
-                canActivate: [AuthGuard, AdminAuthGuard]
-            },
-            {
-                path: 'admin/products',
-                component: AdminProductsComponent,
-                canActivate: [AuthGuard, AdminAuthGuard],
-            },
-            {
-                path: 'admin/orders',
-                component: AdminOrdersComponent,
-                canActivate: [AuthGuard, AdminAuthGuard]
-            },
         ])
 
     ],
